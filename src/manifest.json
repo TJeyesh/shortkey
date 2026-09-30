@@ -1,0 +1,33 @@
+{
+    "manifest_version": 3,
+    "name": "Shortkey",
+    "version": "1.0.0",
+    "description": "Custom keyboard shortcuts for your browser",
+    "options_page": "src/options/index.html",
+    "action": {
+        "default_popup": "src/popup/index.html"
+    },
+    "background": {
+        "service_worker": "src/background/index.js",
+        "type": "module"
+    },
+    "permissions": [
+        "storage",
+        "tabs",
+        "scripting",
+        "activeTab"
+    ],
+    "host_permissions": [
+        "<all_urls>"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "src/content/index.js"
+            ]
+        }
+    ]
+}
